@@ -1,0 +1,38 @@
+{
+  "name": "@aurelia/sfc-vite",
+  "version": "0.0.1",
+  "description": "A Vite plugin for Aurelia single file components",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aurelia/sfc-vite.git"
+  },
+  "keywords": [
+    "aurelia",
+    "vite",
+    "plugin",
+    "sfc",
+    "single file components"
+  ],
+  "author": "Dwayne Charrington",
+  "license": "MIT",
+  "peerDependencies": {
+    "vite": ">=6.0.3"
+  },
+  "dependencies": {
+    "typescript": "^5.7.2",
+    "node-html-parser": "^7.0.1",
+    "sass": "^1.83.4",
+    "stylus": "^0.64.0"
+  },
+  "devDependencies": {
+    "rollup": "^4.34.2,
+    "@rollup/plugin-node-resolve": "^16.0.0"
+  }
+}
