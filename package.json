@@ -1,13 +1,25 @@
 {
   "name": "@aurelia/sfc-vite",
-  "version": "0.0.1",
-  "description": "A Vite plugin for Aurelia single file components",
+  "version": "0.1.0",
+  "description": "A high-performance Vite plugin for Aurelia 2 single file components with enhanced features",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "rollup -c",
-    "prepare": "npm run build"
+    "build:watch": "rollup -c -w",
+    "prepare": "npm run build",
+    "dev": "rollup -c -w",
+    "test": "NODE_OPTIONS='--require=suppress-experimental-warnings --experimental-vm-modules' jest",
+    "test:watch": "NODE_OPTIONS='--require=suppress-experimental-warnings --experimental-vm-modules' jest --watch",
+    "test:coverage": "NODE_OPTIONS='--require=suppress-experimental-warnings --experimental-vm-modules' jest --coverage",
+    "lint": "eslint src --fix",
+    "lint:check": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -15,24 +27,78 @@
   },
   "keywords": [
     "aurelia",
+    "aurelia2",
     "vite",
     "plugin",
     "sfc",
-    "single file components"
+    "single-file-components",
+    "typescript",
+    "scss",
+    "sass",
+    "stylus",
+    "hot-reload",
+    "hmr",
+    "performance"
   ],
   "author": "Dwayne Charrington",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "peerDependencies": {
     "vite": ">=6.0.3"
   },
   "dependencies": {
-    "typescript": "^5.7.2",
     "node-html-parser": "^7.0.1",
-    "sass": "^1.83.4",
-    "stylus": "^0.64.0"
+    "sass": "^1.89.2",
+    "stylus": "^0.64.0",
+    "typescript": "^5.8.3"
+  },
+  "optionalDependencies": {
+    "less": "^4.2.0"
   },
   "devDependencies": {
-    "rollup": "^4.34.2",
-    "@rollup/plugin-node-resolve": "^16.0.0"
-  }
+    "@eslint/js": "^9.30.0",
+    "@jest/globals": "^30.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/node": "^24.0.8",
+    "eslint": "^9.30.0",
+    "globals": "^16.2.0",
+    "jest": "^30.0.3",
+    "jest-environment-node": "^30.0.2",
+    "rollup": "^4.44.1",
+    "suppress-experimental-warnings": "^2.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "globals": {
+      "__DEV__": true
+    },
+    "transform": {},
+    "testMatch": [
+      "**/__tests__/**/*.test.js",
+      "**/?(*.)+(spec|test).js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.test.js",
+      "!**/node_modules/**"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/aurelia/sfc-vite/issues"
+  },
+  "homepage": "https://github.com/aurelia/sfc-vite#readme"
 }
