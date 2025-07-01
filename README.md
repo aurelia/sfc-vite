@@ -1,6 +1,7 @@
 # Aurelia 2 Single File Components Vite Plugin
 
-> **This is a work in progress and not ready for production use. Experimental and subject to change.**
+>**Please note this is an experimental plugin and not stable yet.**
+>While this plugin is purely opt-in and leverages `.au` single-file component files, understand that installing this is more of an experiment at present and subject to frequent updates and breaking changes.
 
 ## Overview
 
